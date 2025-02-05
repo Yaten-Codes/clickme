@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ReactGA from 'react-ga4'; // Import ReactGA
-=======
+
 import React, { useState } from "react";
 import "./App.css";
 import Success from "./components/Success";

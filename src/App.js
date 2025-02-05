@@ -4,6 +4,10 @@ import Success from "./components/Success";
 import Asking from "./components/Asking";
 import flowerBear from "./flowerBear.gif";
 import madBear from "./madBear.gif";
+import ReactGA from "react-ga4"; // Import Google Analytics
+
+// Initialize Google Analytics (only if not done elsewhere)
+ReactGA.initialize("G-NGVJV2DDML");
 
 /**
  * Main App component managing the Valentine's Day proposal.
@@ -20,11 +24,26 @@ const App = () => {
   // Handler for accepting the proposal
   const handleAccept = () => {
     setAccepted(true);
+
+    // Track "Yes" button click in Google Analytics
+    ReactGA.event({
+      category: "User Interaction",
+      action: "Clicked Yes",
+      label: "User accepted the Valentine proposal",
+    });
   };
 
   // Handler for rejecting the proposal
   const handleReject = () => {
     setRejected(true);
+
+    // Track "No" button click in Google Analytics
+    ReactGA.event({
+      category: "User Interaction",
+      action: "Clicked No",
+      label: "User rejected the Valentine proposal",
+    });
+
     // Array of rejection messages
     const rejectionTexts = [
       "Are you sure?",
@@ -32,6 +51,7 @@ const App = () => {
       "Think again!",
       "Loser :(",
     ];
+
     // Randomly select a rejection message
     let randomIndex;
     do {

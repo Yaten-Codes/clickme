@@ -14,8 +14,9 @@ const App = () => {
 
   // Track page view on component mount
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    ReactGA.send("page_view");
   }, []);
+  
 
   // Handler for accepting the proposal
   const handleAccept = () => {

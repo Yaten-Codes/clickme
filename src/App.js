@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Success from "./components/Success";
 import Asking from "./components/Asking";
@@ -6,20 +6,22 @@ import flowerBear from "./flowerBear.gif";
 import madBear from "./madBear.gif";
 import ReactGA from "react-ga4";
 
-/**
- * Main App component managing the Valentine's Day proposal.
- */
 const App = () => {
   const [accepted, setAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
   const [noButtonText, setNoButtonText] = useState("No");
   const [lastRejectedIndex, setLastRejectedIndex] = useState(-1);
 
+  // Track page view on component mount
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
+
   // Handler for accepting the proposal
   const handleAccept = () => {
     setAccepted(true);
 
-    // Track "Yes" button click in Google Analytics
+    // Track "Yes" button click
     ReactGA.event({
       category: "User Interaction",
       action: "Clicked Yes",
@@ -31,7 +33,7 @@ const App = () => {
   const handleReject = () => {
     setRejected(true);
 
-    // Track "No" button click in Google Analytics
+    // Track "No" button click
     ReactGA.event({
       category: "User Interaction",
       action: "Clicked No",

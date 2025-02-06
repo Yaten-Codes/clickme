@@ -1,3 +1,6 @@
+/* App.css */
+
+/* Base styles for all devices */
 * {
   font-family: "Lobster", cursive;
   font-weight: bold;
@@ -17,11 +20,6 @@
   font-weight: bold;
 }
 
-/* Hover effect for the sentence */
-.App-text:hover {
-  color: #391253;
-}
-
 .App-gif {
   width: 300px;
   height: 350px;
@@ -39,10 +37,9 @@
   transition: background-color 0.3s ease;
 }
 
-.App-button:before {
-  content: "\1F498";
-  font-size: 20px;
-  margin-right: 5px;
+/* Hover effect for the sentence */
+.App-text:hover {
+  color: #391253;
 }
 
 /* Hover effect */
@@ -95,4 +92,40 @@
 
 .App-success {
   padding: 20px;
+}
+
+/* Media Queries for responsiveness */
+
+/* For devices with a max width of 600px (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
+  .App-text {
+    font-size: calc(8px + 4vmin);
+  }
+
+  .App-gif {
+    width: 200px;
+    height: 250px;
+  }
+
+  .App-button {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+}
+
+/* For devices with a max width of 768px (e.g., tablets) */
+@media only screen and (max-width: 768px) {
+  .App-text {
+    font-size: calc(9px + 4vmin);
+  }
+
+  .App-gif {
+    width: 250px;
+    height: 300px;
+  }
+
+  .App-button {
+    padding: 12px 18px;
+    font-size: 19px;
+  }
 }
